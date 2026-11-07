@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>新社團團成·运动风潮 - 團服尺寸登記表</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", "PingFang TC", sans-serif;
+    }
+    body {
+      background-color: #e9ecef;
+      margin: 0;
+      padding: 10px 8px 50px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .poster-container {
+      width: 100%;
+      max-width: 820px;
+      background: #ffffff;
+      border: 1px solid #bdc3c7;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 頂部海報視覺 */
+    .header-banner {
+      background: linear-gradient(180deg, #cce4f7 0%, #b2d6f5 55%, #ffffff 100%);
+      padding: 22px 15px 12px;
+      text-align: center;
+      border-bottom: 1px solid #d5e3ee;
+    }
+    .main-title {
+      font-size: clamp(24px, 6vw, 42px);
+      font-weight: 900;
+      color: #0b377b;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+    .sub-title {
+      font-size: clamp(12px, 3vw, 15px);
+      font-weight: 700;
+      color: #21437c;
+      letter-spacing: 3px;
+      margin-top: 5px;
+    }
+    .slogan-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding: 0 5px;
+    }
+    .features { display: flex; gap: 8px; }
+    .badge-feat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #2b3a4a;
+    }
+    .badge-feat .circle-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #2b3a4a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slogan-text {
+      text-align: right;
+      font-size: clamp(13px, 3.6vw, 17px);
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1.35;
+    }
+
+    /* 表單區塊 */
+    .form-section {
+      padding: 12px;
+      background: #ffffff;
+    }
+    .mobile-scroll-tip {
+      font-size: 12px;
+      color: #d32f2f;
+      font-weight: bold;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .tables-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .tables-wrapper { flex-direction: row; gap: 10px; }
+      .mobile-scroll-tip { display: none; }
+    }
+    .table-col {
+      flex: 1;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    table {
+      width: 100%;
+      min-width: 390px;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 13px;
+    }
+    table, th, td {
+      border: 1px solid #000000;
+    }
+    th, td {
+      padding: 4px 1px;
+      height: 28px;
+    }
+    .table-title {
+      background-color: #ffffff;
+      font-weight: bold;
+      font-size: 13.5px;
+      padding: 6px 2px;
+    }
+    .size-head-female { background-color: #fcebe6; font-weight: bold; }
+    .size-head-male { background-color: #e5f1fa; font-weight: bold; }
+    .qty-row { background-color: #fffde7; }
+    .qty-row td:first-child {
+      font-weight: bold;
+      color: #b71c1c;
+      font-size: 12px;
+    }
+
+    /* 輸入格放大好按 */
+    .qty-input {
+      width: 88%;
+      height: 32px;
+      border: 1.5px solid #555;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 900;
+      color: #0b377b;
+      background: #ffffff;
+    }
+    .qty-input:focus {
+      outline: 2px solid #0d6efd;
+      background: #eef6ff;
+    }
+
+    .note-bar {
+      margin-top: 12px;
+      font-size: 12px;
+      border: 1px solid #000;
+      padding: 6px 8px;
+      background: #fafafa;
+    }
+
+    /* 資訊欄 */
+    .bottom-info-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+      column-gap: 15px;
+      font-size: 14.5px;
+      font-weight: bold;
+    }
+    @media (min-width: 580px) {
+      .bottom-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .info-label {
+      white-space: nowrap;
+      margin-right: 6px;
+    }
+    .underline-input {
+      flex: 1;
+      border: none;
+      border-bottom: 1.5px solid #000;
+      padding: 5px;
+      font-size: 15px;
+      outline: none;
+      background: transparent;
+    }
+    .box-input {
+      width: 95px;
+      height: 32px;
+      border: 1.5px solid #000;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 900;
+      background-color: #f8f9fa;
+      color: #000;
+    }
+    .box-total {
+      background: #e7f1ff;
+      color: #0b377b;
+      border: 2px solid #0b377b;
+      font-size: 18px;
+    }
+
+    /* 底部按鈕區 */
+    .submit-container {
+      margin-top: 20px;
+      padding: 5px;
+      text-align: center;
+    }
+    .btn-main-send {
+      width: 100%;
+      max-width: 480px;
+      padding: 15px 20px;
+      background: #06C755;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    /* 彈出視窗 */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+    .modal-card {
+      background: #fff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      padding: 20px 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+    .modal-title {
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .modal-desc {
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .modal-btn {
+      padding: 13px;
+      border-radius: 8px;
+      border: none;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-line { background-color: #06C755; color: #fff; }
+    .btn-copy-text { background-color: #0d6efd; color: #fff; }
+    .btn-close-modal { background-color: #e9ecef; color: #333; margin-top: 5px; }
+
+    /* 文字預覽框 (確保 100% 能複製備用) */
+    .preview-textarea {
+      width: 100%;
+      height: 90px;
+      font-size: 12px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fdfdfd;
+      margin-top: 8px;
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-container">
+    <div class="header-banner">
+      <div class="main-title">新社團團成·运动风潮</div>
+      <div class="sub-title">THE SPIRIT OF UNITY</div>
+
+      <div class="slogan-box">
+        <div class="features">
+          <div class="badge-feat">
+            <div class="circle-icon">🍃</div>
+            <span>透氣舒適</span>
+          </div>
+          <div class="badge-feat">
+            <div class="circle-icon">💧</div>
+            <span>吸濕排汗</span>
+          </div>
+        </div>
+        <div class="slogan-text">
+          凝聚青年，<br>從一件好團服開始
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="mobile-scroll-tip">
+        <span>👇 請在黃色「件數統計」填入數量</span>
+        <span>👉 表格可向右滑動</span>
+      </div>
+
+      <div class="tables-wrapper">
+        <!-- 女款表格 -->
+        <div class="table-col">
+          <table>
+            <tr>
+              <th colspan="9" class="table-title">版套尺寸 - DHD0103P-女公版 POLO</th>
+            </tr>
+            <tr class="size-head-female">
+              <th style="width: 15%;"></th>
+              <th>S</th><th>M</th><th>L</th><th>XL</th><th>2XL</th><th>3XL</th><th>4XL</th><th>5XL</th>
+            </tr>
+            <tr>
+              <td>肩寬</td><td>36.2</td><td>38.7</td><td>41.3</td><td>43.3</td><td>43.3</td><td>46.4</td><td>51.4</td><td>54.0</td>
+            </tr>
+            <tr>
+              <td>胸圍</td><td>44.5</td><td>47.0</td><td>49.5</td><td>52.1</td><td>54.6</td><td>57.2</td><td>59.7</td><td>62.2</td>
+            </tr>
+            <tr>
+              <td>下擺</td><td>62.2</td><td>64.8</td><td>67.3</td><td>69.9</td><td>72.4</td><td>74.9</td><td>77.5</td><td>80.0</td>
+            </tr>
+            <tr>
+              <td>袖口</td><td>15.8</td><td>18.4</td><td>18.4</td><td>19.7</td><td>17.8</td><td>22.2</td><td>23.5</td><td>24.5</td>
+            </tr>
+            <!-- 每個格子直接寫入 oninput="calc()" 強制即時計算 -->
+            <tr class="qty-row">
+              <td>件數統計</td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="S" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="M" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="L" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="2XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="3XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="4XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input f-qty" data-size="5XL" oninput="calc()" onkeyup="calc()"></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 男款表格 -->
+        <div class="table-col">
+          <table>
+            <tr>
+              <th colspan="9" class="table-title">版套尺寸 - DHD0102P -男POLO</th>
+            </tr>
+            <tr class="size-head-male">
+              <th style="width: 15%;"></th>
+              <th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>2XL</th><th>4XL</th><th>5XL</th>
+            </tr>
+            <tr>
+              <td>肩寬</td><td>38.7</td><td>41.3</td><td>43.8</td><td>48.4</td><td>48.9</td><td>51.4</td><td>56.5</td><td>59.1</td>
+            </tr>
+            <tr>
+              <td>胸圍</td><td>47.0</td><td>49.5</td><td>52.1</td><td>54.6</td><td>57.2</td><td>59.7</td><td>64.8</td><td>67.3</td>
+            </tr>
+            <tr>
+              <td>衣長</td><td>64.8</td><td>67.3</td><td>69.9</td><td>72.4</td><td>74.9</td><td>80.0</td><td>80.0</td><td>80.0</td>
+            </tr>
+            <tr>
+              <td>袖長</td><td>15.9</td><td>18.4</td><td>19.7</td><td>17.8</td><td>21.5</td><td>24.9</td><td>20.0</td><td>21.0</td>
+            </tr>
+            <tr class="qty-row">
+              <td>件數統計</td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="XS" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="S" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="M" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="L" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="2XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="4XL" oninput="calc()" onkeyup="calc()"></td>
+              <td><input type="text" inputmode="numeric" class="qty-input m-qty" data-size="5XL" oninput="calc()" onkeyup="calc()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="note-bar">
+        <div><strong>【多選尺寸登記】</strong>請在對應方格內填寫件數</div>
+        <div style="font-size: 11px; color: #555;">尺寸僅供參考，正面平量誤差約1~1公分屬正常</div>
+      </div>
+
+      <!-- 基本資料 -->
+      <div class="bottom-info-grid">
+        <div class="info-item">
+          <span class="info-label">姓名:</span>
+          <input type="text" id="custName" class="underline-input" placeholder="請填寫姓名" oninput="calc()">
+        </div>
+        <div class="info-item">
+          <span class="info-label">電話:</span>
+          <input type="tel" id="custPhone" class="underline-input" placeholder="請填寫電話" oninput="calc()">
+        </div>
+        <div class="info-item">
+          <span class="info-label">男款總件數:</span>
+          <input type="text" id="maleTotal1" class="box-input" readonly value="0">
+        </div>
+
+        <div class="info-item">
+          <span class="info-label">部門:</span>
+          <input type="text" id="custDept" class="underline-input" placeholder="請填寫部門" oninput="calc()">
+        </div>
+        <div class="info-item">
+          <span class="info-label">組別:</span>
+          <input type="text" id="custTeam" class="underline-input" placeholder="請填寫組別" oninput="calc()">
+        </div>
+        <div class="info-item">
+          <span class="info-label">女款總件數:</span>
+          <input type="text" id="femaleTotal1" class="box-input" readonly value="0">
+        </div>
+
+        <div class="info-item">
+          <span class="info-label">男款總件數:</span>
+          <input type="text" id="maleTotal2" class="box-input" readonly value="0">
+        </div>
+        <div class="info-item">
+          <span class="info-label">女款總件數:</span>
+          <input type="text" id="femaleTotal2" class="box-input" readonly value="0">
+        </div>
+        <div class="info-item">
+          <span class="info-label" style="color:#0b377b;">總件數總計:</span>
+          <input type="text" id="grandTotal" class="box-input box-total" readonly value="0">
+        </div>
+      </div>
+
+      <!-- 底部儲存與傳送審查 -->
+      <div class="submit-container">
+        <button type="button" class="btn-main-send" onclick="openSendModal()">
+          💬 填寫完成：傳送 LINE 給我審查
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 傳送對話視窗 -->
+  <div class="modal-overlay" id="sendModal">
+    <div class="modal-card">
+      <div class="modal-title">傳送審查結果</div>
+      <div class="modal-desc">已為您自動彙整件數明細，請點擊下方直接傳送：</div>
+
+      <div class="modal-actions">
+        <!-- 直接以原生連結開啟 LINE，徹底避開 Safari 彈窗攔截 -->
+        <a id="lineDirectLink" class="modal-btn btn-line" href="#" target="_blank" onclick="executeLineSend(event)">
+          🟢 點此開啟 LINE 傳送給我
+        </a>
+
+        <!-- 備用複製方式 -->
+        <button type="button" class="modal-btn btn-copy-text" onclick="copyResultText()">
+          📋 複製訂單文字 (手動貼到 LINE)
+        </button>
+
+        <textarea id="resultPreview" class="preview-textarea" readonly></textarea>
+
+        <button type="button" class="modal-btn btn-close-modal" onclick="closeSendModal()">關閉返回</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 安全將字串轉整數 (防全形數字、防特殊符號)
+    function cleanInt(v) {
+      if (!v) return 0;
+      v = String(v).trim();
+      v = v.replace(/[\uff10-\uff19]/g, function(ch) {
+        return String.fromCharCode(ch.charCodeAt(0) - 0xfee0);
+      });
+      v = v.replace(/\D/g, '');
+      return parseInt(v, 10) || 0;
+    }
+
+    // 核心計算函式：每次打字 100% 保證執行
+    function calc() {
+      var fSum = 0;
+      var fInputs = document.querySelectorAll('.f-qty');
+      for (var i = 0; i < fInputs.length; i++) {
+        fSum += cleanInt(fInputs[i].value);
+      }
+
+      var mSum = 0;
+      var mInputs = document.querySelectorAll('.m-qty');
+      for (var j = 0; j < mInputs.length; j++) {
+        mSum += cleanInt(mInputs[j].value);
+      }
+
+      var total = fSum + mSum;
+
+      // 即時填入統計框
+      document.getElementById('femaleTotal1').value = fSum;
+      document.getElementById('femaleTotal2').value = fSum;
+      document.getElementById('maleTotal1').value = mSum;
+      document.getElementById('maleTotal2').value = mSum;
+      document.getElementById('grandTotal').value = total;
+
+      // 產生明細文字與 LINE 網址
+      updateSummaryContent();
+
+      // 安全儲存
+      try {
+        var cache = collectData();
+        localStorage.setItem('polo_cache_v2', JSON.stringify(cache));
+      } catch(e){}
+    }
+
+    // 整理填寫資料
+    function collectData() {
+      var data = {
+        name: document.getElementById('custName').value.trim(),
+        phone: document.getElementById('custPhone').value.trim(),
+        dept: document.getElementById('custDept').value.trim(),
+        team: document.getElementById('custTeam').value.trim(),
+        fSizes: {},
+        mSizes: {}
+      };
+
+      document.querySelectorAll('.f-qty').forEach(function(inp) {
+        var c = cleanInt(inp.value);
+        if (c > 0) data.fSizes[inp.getAttribute('data-size')] = c;
+      });
+
+      document.querySelectorAll('.m-qty').forEach(function(inp) {
+        var c = cleanInt(inp.value);
+        if (c > 0) data.mSizes[inp.getAttribute('data-size')] = c;
+      });
+
+      return data;
+    }
+
+    // 彙整文字摘要
+    function buildSummary() {
+      var d = collectData();
+      var text = "【團服尺寸登記表 - 審查單】\n";
+      text += "姓名：" + (d.name || "未填") + "\n";
+      text += "電話：" + (d.phone || "未填") + "\n";
+      text += "部門/組別：" + (d.dept || "未填") + " / " + (d.team || "未填") + "\n";
+      text += "-------------------------\n";
+
+      var fArr = [];
+      for (var k in d.fSizes) { fArr.push(k + ": " + d.fSizes[k] + "件"); }
+      text += "👚 女款POLO：" + (fArr.length ? fArr.join(', ') : "0件") + " (小計 " + document.getElementById('femaleTotal1').value + " 件)\n";
+
+      var mArr = [];
+      for (var m in d.mSizes) { mArr.push(m + ": " + d.mSizes[m] + "件"); }
+      text += "👕 男款POLO：" + (mArr.length ? mArr.join(', ') : "0件") + " (小計 " + document.getElementById('maleTotal1').value + " 件)\n";
+      text += "=========================\n";
+      text += "⭐ 總件數合計：" + document.getElementById('grandTotal').value + " 件\n";
+
+      // 產生審查連結
+      try {
+        var hash = encodeURIComponent(JSON.stringify(d));
+        var fullUrl = window.location.origin + window.location.pathname + '#' + hash;
+        text += "\n🔗 點擊網址查看填好的完整圖表：\n" + fullUrl;
+      } catch(e){}
+
+      return text;
+    }
+
+    // 更新 LINE 連結與預覽框
+    function updateSummaryContent() {
+      var text = buildSummary();
+      var preview = document.getElementById('resultPreview');
+      if (preview) preview.value = text;
+
+      var lineBtn = document.getElementById('lineDirectLink');
+      if (lineBtn) {
+        lineBtn.href = "https://line.me/R/msg/text/?" + encodeURIComponent(text);
+      }
+    }
+
+    // 打開視窗
+    function openSendModal() {
+      calc();
+      document.getElementById('sendModal').style.display = 'flex';
+    }
+    function closeSendModal() {
+      document.getElementById('sendModal').style.display = 'none';
+    }
+
+    // 點擊 LINE 傳送 (直接跳轉，絕不被 Safari 攔截)
+    function executeLineSend(e) {
+      calc();
+      var text = buildSummary();
+      var lineUrl = "https://line.me/R/msg/text/?" + encodeURIComponent(text);
+      window.location.href = lineUrl;
+    }
+
+    // 複製文字
+    function copyResultText() {
+      calc();
+      var text = buildSummary();
+      var textarea = document.getElementById('resultPreview');
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        alert("✅ 訂單文字已複製！\n請直接切換到 LINE 貼上並傳送給我。");
+      } catch(err) {
+        prompt("請手動選取並複製以下文字：", text);
+      }
+    }
+
+    // 全域事件監聽，雙重保險
+    document.addEventListener('input', function(e) {
+      if (e.target && (e.target.classList.contains('qty-input') || e.target.classList.contains('underline-input'))) {
+        calc();
+      }
+    });
+
+    // 網址還原資料
+    function restoreFromData(data) {
+      if (!data) return;
+      if (data.name) document.getElementById('custName').value = data.name;
+      if (data.phone) document.getElementById('custPhone').value = data.phone;
+      if (data.dept) document.getElementById('custDept').value = data.dept;
+      if (data.team) document.getElementById('custTeam').value = data.team;
+
+      if (data.fSizes) {
+        document.querySelectorAll('.f-qty').forEach(function(inp) {
+          var s = inp.getAttribute('data-size');
+          if (data.fSizes[s] !== undefined) inp.value = data.fSizes[s];
+        });
+      }
+      if (data.mSizes) {
+        document.querySelectorAll('.m-qty').forEach(function(inp) {
+          var s = inp.getAttribute('data-size');
+          if (data.mSizes[s] !== undefined) inp.value = data.mSizes[s];
+        });
+      }
+      calc();
+    }
+
+    // 啟動初始化
+    (function init() {
+      calc();
+      if (window.location.hash && window.location.hash.length > 1) {
+        try {
+          var raw = decodeURIComponent(window.location.hash.substring(1));
+          restoreFromData(JSON.parse(raw));
+          return;
+        } catch(e){}
+      }
+      try {
+        var saved = localStorage.getItem('polo_cache_v2');
+        if (saved) restoreFromData(JSON.parse(saved));
+      } catch(e){}
+    })();
+  </script>
+</body>
+</html>
